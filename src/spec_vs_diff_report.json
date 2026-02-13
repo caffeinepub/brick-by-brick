@@ -1,0 +1,30 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-13T05:39:29.114Z",
+  "summary": "REQ-25 requested a manual export of all files under `frontend/src/components/**` with full paths and complete contents. The diff shows no `frontend/src/components` files added/modified/removed; only `project_state.json` was modified, which is unrelated to the requested manual ZIP export.",
+  "missing_requirements": [
+    {
+      "id": "REQ-25",
+      "requirement": "Export the entire `frontend/src/components` folder by outputting every file under `frontend/src/components/**` one by one, preserving exact relative paths and complete, unmodified contents; include no files outside that folder.",
+      "reason": "No files under `frontend/src/components/**` appear in the diff (Added: 0, Modified: 1 only `project_state.json`). Therefore the requested file-by-file export output is not present/implemented.",
+      "evidence": [
+        "<file-diff>: Added: 0, Modified: 1, Removed: 0",
+        "project_state.json"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Modification of `project_state.json` summary/existing feature metadata unrelated to exporting `frontend/src/components/**`.",
+      "reason": "BuildRequest explicitly scoped work to manual export/packaging of existing `frontend/src/components` files and stated no new app features; changing `project_state.json` does not contribute to exporting component files.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "project_state.json"
+  ]
+}

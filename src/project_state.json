@@ -1,0 +1,286 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 9,
+  "summary": "Build a web app called \"BRICK BY BRICK\": a cinematic, distraction-free screenplay beats workspace with a modern/attractive UI, white landing/index page, per-project cover/background customization, multiple screenplay structure templates with full beat content and autosave, profile management, reference/character tabs, PDF export, and new authentication (login/register).",
+  "architectural_notes": [
+    "Use localStorage for per-beat autosave and to preserve data across tab switches per project.",
+    "Persist index background image, per-project cover images, profile data, and screenplay content in client storage (localStorage) to start.",
+    "Authentication will require user account state and persistence beyond current localStorage-only approach (e.g., backend/auth service or equivalent)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-the-landing-index-page-for-the-app-titled-brick-by-brick-with-a-solid-white-default-background-a-large-centered-logo-title-treatment-and-a-desktop-first-responsive-layout",
+      "title": "Create the landing/index page for the app titled “BRICK BY BRICK” with a solid white default background, a large centered logo/title treatment, and a desktop-first responsive layout.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-index-page-controls-a-top-left-theme-palette-icon-that-opens-an-image-upload-and-sets-the-index-page-background-image-persisted-in-localstorage-and-a-top-right-profile-icon-that-navigates-to-the-profile-page-without-opening-any-file-picker",
+      "title": "Implement index page controls: a top-left theme (palette) icon that opens an image upload and sets the index page background image (persisted in localStorage), and a top-right profile icon that navigates to the Profile page without opening any file picker.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-new-project-creation-on-the-index-page-using-a-centered-glassmorphic-3d-card-containing-a-typeable-input-placeholder-project-name-and-an-add-button-that-creates-a-new-project-without-popups-alerts-and-persists-it-in-localstorage",
+      "title": "Add new project creation on the index page using a centered glassmorphic 3D card containing a typeable input (placeholder: “Project name”) and an “Add” button that creates a new project without popups/alerts and persists it in localStorage.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-a-grid-list-of-project-cards-on-the-index-page-each-card-shows-the-project-cover-image-default-if-none-and-project-name-has-rounded-corners-and-shadow-and-opens-the-project-s-screenplay-page-when-clicked",
+      "title": "Render a grid/list of project cards on the index page; each card shows the project cover image (default if none) and project name, has rounded corners and shadow, and opens the project’s Screenplay page when clicked.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-per-project-cover-image-editing-from-the-index-page-each-project-card-has-an-edit-icon-that-opens-a-file-picker-selected-image-becomes-the-project-cover-can-be-changed-unlimited-times-and-is-persisted-and-reused-on-the-card-and-as-the-screenplay-page-background",
+      "title": "Implement per-project cover image editing from the index page: each project card has an ✎ edit icon that opens a file picker; selected image becomes the project cover, can be changed unlimited times, and is persisted and reused (on the card and as the Screenplay page background).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-profile-page-accessible-only-via-the-index-page-profile-icon-provide-fields-for-profile-image-upload-name-profession-bio-description-and-a-save-button-persist-profile-data-in-localstorage-and-show-the-saved-profile-image-in-the-index-page-profile-icon-or-a-default-icon-if-none-ensure-no-other-page-can-upload-change-the-profile-image",
+      "title": "Create the Profile page accessible only via the index page profile icon. Provide fields for profile image upload, Name, Profession, Bio/Description, and a Save button; persist profile data in localStorage and show the saved profile image in the index page profile icon (or a default icon if none). Ensure no other page can upload/change the profile image.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-per-project-screenplay-page-full-screen-background-using-the-project-cover-image-a-dark-dim-overlay-for-readability-white-text-and-a-top-navigation-tab-bar-with-these-tabs-save-the-cat-three-act-structure-fichtean-curve-hero-s-journey-dan-harmon-story-circle-references-characters-switching-tabs-must-not-lose-any-entered-data",
+      "title": "Build the per-project Screenplay page: full-screen background using the project cover image, a dark dim overlay for readability, white text, and a top navigation tab bar with these tabs: Save the Cat, Three Act Structure, Fichtean Curve, Hero’s Journey, Dan Harmon Story Circle, References, Characters. Switching tabs must not lose any entered data.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-save-the-cat-structure-tab-with-all-15-beats-and-required-beat-ui-beat-name-detailed-explanation-2-4-lines-what-to-write-here-guidance-approx-page-count-approx-screen-duration-and-a-large-editable-textarea-per-beat-all-beat-textareas-must-auto-save-per-project-tab-beat-in-localstorage",
+      "title": "Implement the “Save the Cat” structure tab with all 15 beats and required beat UI: Beat Name, detailed explanation (2–4 lines), “What to write here” guidance, approx page count, approx screen duration, and a large editable textarea per beat. All beat textareas must auto-save per project+tab+beat in localStorage.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-three-act-structure-tab-with-the-listed-beats-and-required-metadata-page-ranges-and-screen-time-per-act-and-provide-a-large-editable-textarea-per-beat-with-per-project-autosave-in-localstorage",
+      "title": "Implement the “Three Act Structure” tab with the listed beats and required metadata (page ranges and screen time per act), and provide a large editable textarea per beat with per-project autosave in localStorage.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-fichtean-curve-tab-with-inciting-incident-rising-action-multiple-crises-climax-falling-action-resolution-ensure-the-content-explains-escalation-clearly-include-a-large-editable-textarea-for-each-beat-and-autosave-in-localstorage-per-project",
+      "title": "Implement the “Fichtean Curve” tab with: Inciting Incident, Rising Action (multiple crises), Climax, Falling Action, Resolution; ensure the content explains escalation clearly; include a large editable textarea for each beat and autosave in localStorage per project.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-hero-s-journey-tab-with-all-12-steps-each-step-must-include-purpose-writing-guidance-plus-approximate-page-count-and-screen-duration-and-a-large-editable-textarea-with-autosave-per-project-in-localstorage",
+      "title": "Implement the “Hero’s Journey” tab with all 12 steps; each step must include purpose + writing guidance, plus approximate page count and screen duration, and a large editable textarea with autosave per project in localStorage.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-dan-harmon-story-circle-tab-with-all-8-steps-you-need-go-search-find-take-return-change-and-include-explanation-of-internal-character-transformation-plus-large-editable-textareas-with-autosave-per-project-in-localstorage",
+      "title": "Implement the “Dan Harmon Story Circle” tab with all 8 steps (You, Need, Go, Search, Find, Take, Return, Change) and include explanation of internal character transformation, plus large editable textareas with autosave per project in localStorage.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-references-tab-per-project-where-users-can-type-and-store-freeform-documents-notes-persist-all-reference-content-in-localstorage-per-project",
+      "title": "Add a “References” tab per project where users can type and store freeform documents/notes; persist all reference content in localStorage per project.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-characters-tab-per-project-where-users-can-create-a-folder-entry-for-each-character-for-each-character-allow-typing-character-arc-and-bullet-points-notes-and-adding-additional-documents-notes-persist-character-data-in-localstorage-per-project",
+      "title": "Add a “Characters” tab per project where users can create a folder/entry for each character; for each character allow typing character arc and bullet points/notes and adding additional documents/notes. Persist character data in localStorage per project.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-export-to-pdf-option-on-the-project-screenplay-page-that-exports-the-project-s-written-content-across-all-structure-tabs-plus-references-and-characters-into-a-downloadable-pdf",
+      "title": "Add an Export to PDF option on the project Screenplay page that exports the project’s written content (across all structure tabs plus References and Characters) into a downloadable PDF.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-support-per-project-front-cover-page-theming-allow-each-project-to-use-its-own-cover-image-already-editable-on-index-and-ensure-this-cover-is-applied-consistently-on-the-project-card-and-as-the-screenplay-page-background-also-support-changing-the-landing-page-theme-image-independently-of-project-covers",
+      "title": "Support per-project front/cover page theming: allow each project to use its own cover image (already editable on index) and ensure this cover is applied consistently on the project card and as the Screenplay page background. Also support changing the landing page theme image independently of project covers.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-a-coherent-cinematic-professional-distraction-free-visual-theme-dark-neutral-for-writing-surfaces-while-preserving-the-solid-white-default-index-with-consistent-typography-spacing-and-component-styling-across-index-profile-and-screenplay-pages-avoid-blue-purple-as-primary-brand-colors",
+      "title": "Establish a coherent cinematic, professional, distraction-free visual theme (dark/neutral for writing surfaces while preserving the solid-white default index), with consistent typography, spacing, and component styling across Index, Profile, and Screenplay pages (avoid blue/purple as primary brand colors).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-dedicated-authentication-pages-for-login-and-register-using-internet-identity-for-authentication-and-expose-clear-user-facing-navigation-between-them",
+      "title": "Add dedicated authentication pages for Login and Register, using Internet Identity for authentication, and expose clear user-facing navigation between them.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-gate-the-app-s-main-pages-behind-authentication-and-add-a-logout-entry-point-that-clears-the-internet-identity-session",
+      "title": "Gate the app’s main pages behind authentication and add a logout entry point that clears the Internet Identity session.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-scope-localstorage-data-projects-profile-index-theme-and-per-project-data-to-the-authenticated-user-identity-so-that-different-internet-identity-principals-do-not-share-the-same-localstorage-workspace-on-the-same-browser",
+      "title": "Scope localStorage data (projects, profile, index theme, and per-project data) to the authenticated user identity so that different Internet Identity principals do not share the same localStorage workspace on the same browser.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-refresh-the-ui-to-a-more-modern-attractive-look-while-preserving-the-app-s-existing-cinematic-distraction-free-direction-and-the-solid-white-default-index-background-behavior",
+      "title": "Refresh the UI to a more modern, attractive look while preserving the app’s existing cinematic/distraction-free direction and the solid-white default Index background behavior.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-existing-login-page-login-to-be-a-more-modern-polished-authentication-experience-while-keeping-the-internet-identity-login-flow-intact",
+      "title": "Redesign the existing Login page (/login) to be a more modern, polished authentication experience while keeping the Internet Identity login flow intact.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-existing-register-page-register-to-match-the-modern-login-page-design-and-provide-a-polished-clear-create-account-experience-while-keeping-the-internet-identity-login-registration-flow-intact",
+      "title": "Redesign the existing Register page (/register) to match the modern Login page design and provide a polished, clear 'create account' experience while keeping the Internet Identity login/registration flow intact.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-authentication-page-ux-consistency-and-accessibility-across-login-and-register-pages-without-changing-the-routing-or-auth-gating-behavior",
+      "title": "Improve authentication-page UX consistency and accessibility across Login and Register pages without changing the routing or auth gating behavior.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Index/Landing page: solid white default, large centered \"BRICK BY BRICK\" logo/title, glassmorphic new-project card (input + Add), project cards with cover + name, click-to-open project",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Theme/background customization for index page via a top-corner palette icon that uploads an image and can be changed unlimited times",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Per-project cover image management: default cover, edit (✎) icon opens file picker, unlimited changes, cover reused as project card image and as full-screen background on screenplay page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Profile page: accessible only via profile icon (no file picker elsewhere), upload profile image + name/profession/bio + save; profile icon on index shows saved image or default",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Screenplay page per project: full-screen cover background with dark overlay + white text; top navigation tabs for screenplay structures; switching tabs must not lose data",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Provide full screenplay structures and beats content with autosaving editable fields: Save the Cat (15 beats), Three Act, Fichtean Curve, Hero’s Journey (12), Dan Harmon Story Circle (8); each beat includes explanation, guidance, approx pages & duration, large textarea, autosave (localStorage)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Per-project additional tabs: References (freeform notes/docs) and Characters (folders per character with arc/notes and attach/add documents)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Export screenplay/project to PDF option",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Modernize and improve overall UI/visual design to be more modern and attractive while keeping the cinematic, distraction-free direction",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add authentication: Login and Register pages/flow (user accounts)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Design and implement proper dedicated Register and Login pages with a modern, polished UI (improved auth flow UX)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Export the entire `frontend/src/components` folder in the manual ZIP bundle by outputting every file under `frontend/src/components/**` one by one, preserving exact relative paths and file contents.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "BRICK BY BRICK",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

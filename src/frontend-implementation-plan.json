@@ -1,0 +1,29 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Manual ZIP export: frontend/src/components folder (file-by-file)",
+  "requirements": [
+    {
+      "id": "REQ-25",
+      "summary": "Add a reproducible, manual-export helper that outputs every file under frontend/src/components/** one-by-one with exact relative paths and unchanged contents (and nothing else).",
+      "acceptanceCriteria": [
+        "All files and subfolders under `frontend/src/components` are included (e.g., `auth/*`, `layout/*`, `projects/*`, `screenplay/*`).",
+        "Each file is output with its full path (starting at `frontend/src/components/...`) and complete, unmodified content.",
+        "No files outside `frontend/src/components` are included in this batch.",
+        "Output is organized so a developer can reconstruct the folder locally with the same structure."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/scripts/manualZipExportComponents.ts",
+          "operation": "create",
+          "description": "Create a Node/TS helper script that recursively walks `frontend/src/components/**`, reads each file as-is, and prints a deterministic, file-by-file export to stdout that includes each file’s full relative path (starting at `frontend/src/components/...`) followed by the complete, unmodified file contents; ensure it includes subfolders (e.g., auth/layout/projects/screenplay) and excludes anything outside `frontend/src/components`."
+        },
+        {
+          "path": "frontend/scripts/manualZipExportComponents.md",
+          "operation": "create",
+          "description": "Document how to run the manual export helper, what its output format looks like (path + full contents per file), and guardrails to ensure only `frontend/src/components/**` is included (no hooks/lib/backend/public/root files)."
+        }
+      ]
+    }
+  ]
+}

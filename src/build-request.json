@@ -1,0 +1,39 @@
+{
+  "kind": "build_request",
+  "title": "Manual ZIP export: frontend/src/components folder (file-by-file)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-25",
+      "text": "Export the entire `frontend/src/components` folder in the manual ZIP bundle by outputting every file under `frontend/src/components/**` one by one, preserving exact relative paths and file contents.",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-20"
+        ],
+        "quotes": [
+          "components"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All files and subfolders under `frontend/src/components` are included (e.g., `auth/*`, `layout/*`, `projects/*`, `screenplay/*`).",
+        "Each file is output with its full path (starting at `frontend/src/components/...`) and complete, unmodified content.",
+        "No files outside `frontend/src/components` are included in this batch.",
+        "Output is organized so a developer can reconstruct the folder locally with the same structure."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for any user-facing text in the build request.",
+    "Do not request edits to immutable frontend paths: `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, `frontend/src/components/ui`.",
+    "Do not introduce new app features; this request is only for manual export/packaging of existing files."
+  ],
+  "nonGoals": [
+    "Changing UI behavior, styles, routing, authentication, or storage logic.",
+    "Exporting other folders (e.g., `frontend/src/hooks`, `frontend/src/lib`, `backend`, `public`, root config files) in this batch."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
